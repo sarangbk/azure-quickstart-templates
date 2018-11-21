@@ -32,20 +32,6 @@
             "metadata": {
                 "description": "Subnet name that will contain the App Service Environment"
             }
-        },
-        "internalLoadBalancingMode": {
-            "type": "int",
-            "defaultValue": 3,
-            "allowedValues": [0,1,2,3],
-            "metadata": {
-                "description": "0 = public VIP only, 1 = only ports 80/443 are mapped to ILB VIP, 2 = only FTP ports are mapped to ILB VIP, 3 = both ports 80/443 and FTP ports are mapped to an ILB VIP."
-            }
-        },
-        "dnsSuffix": {
-            "type": "string",
-            "metadata": {
-                "description": "Used *only* when deploying an ILB enabled ASE.  Set this to the root domain associated with the ASE.  For example: contoso.com"
-            }
         }
     },
     "variables":{
@@ -61,9 +47,7 @@
         "properties": {
           "name": "[parameters('aseName')]",
           "location": "[parameters('aseLocation')]",
-          "ipSslAddressCount": 0,
-          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-          "dnsSuffix" : "[parameters('dnsSuffix')]",
+          "ipSslAddressCount": 0,          
           "virtualNetwork": {
             "Id": "[variables('vnetID')]",
             "Subnet": "[parameters('subnetName')]"
