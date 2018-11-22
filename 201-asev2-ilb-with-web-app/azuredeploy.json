@@ -90,7 +90,7 @@
       "properties": {
         "name": "[parameters('aseName')]",
         "location": "[parameters('aseLocation')]",
-        "ipSslAddressCount": 0,
+        "ipSslAddressCount": 1,
         "virtualNetwork": {
           "Id": "[variables('vnetID')]",
           "Subnet": "[parameters('subnetName')]"
